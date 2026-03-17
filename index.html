@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive;
+    background: linear-gradient(to right, pink, purple);
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+h1 {
+    margin-top: 50px;
+    font-size: 40px;
+}
+
+.heart {
+    position: absolute;
+    color: red;
+    font-size: 20px;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-10vh); }
+}
+
+button {
+    padding: 15px 25px;
+    font-size: 20px;
+    background: white;
+    color: pink;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#letter {
+    display: none;
+    margin-top: 30px;
+    font-size: 20px;
+    padding: 20px;
+}
+
+img {
+    width: 200px;
+    border-radius: 15px;
+    margin: 10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>🎉 Happy Birthday My Love 🎂</h1>
+
+<button onclick="showSurprise()">Click Here 💖</button>
+
+<div id="letter">
+    <p>
+    You are the most special person in my life 💕<br>
+    Thank you for always being there 🥹<br>
+    I love you forever 💖
+    </p>
+
+    <img src="photo1.jpg">
+    <img src="photo2.jpg">
+</div>
+
+<audio id="music" loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function showSurprise() {
+    document.getElementById("letter").style.display = "block";
+    document.getElementById("music").play();
+}
+
+// floating hearts
+setInterval(() => {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 10 + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}, 300);
+</script>
+
+</body>
+</html>
