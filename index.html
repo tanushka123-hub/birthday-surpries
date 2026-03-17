@@ -2,27 +2,53 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For You ❤️</title>
+<title>For Yoviee ❤️</title>
 
 <style>
 body {
     margin: 0;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
     font-family: 'Comic Sans MS', cursive;
-    background: linear-gradient(to right, pink, purple);
     text-align: center;
     color: white;
     overflow: hidden;
 }
 
 h1 {
-    margin-top: 50px;
+    margin-top: 40px;
     font-size: 40px;
+}
+
+button {
+    padding: 15px 25px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    background: white;
+    color: #ff4d6d;
+    cursor: pointer;
+}
+
+#content {
+    display: none;
+    margin-top: 20px;
+}
+
+#message {
+    font-size: 22px;
+    margin-top: 20px;
+    white-space: pre-line;
+}
+
+img {
+    width: 200px;
+    border-radius: 15px;
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
 .heart {
     position: absolute;
-    color: red;
-    font-size: 20px;
     animation: float 5s linear infinite;
 }
 
@@ -30,48 +56,21 @@ h1 {
     from { transform: translateY(100vh); }
     to { transform: translateY(-10vh); }
 }
-
-button {
-    padding: 15px 25px;
-    font-size: 20px;
-    background: white;
-    color: pink;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-#letter {
-    display: none;
-    margin-top: 30px;
-    font-size: 20px;
-    padding: 20px;
-}
-
-img {
-    width: 200px;
-    border-radius: 15px;
-    margin: 10px;
-}
 </style>
-
 </head>
 
 <body>
 
-<h1>🎉 Happy Birthday My Love 🎂</h1>
+<h1>🎉 Happy Birthday Yoviee 💖</h1>
 
-<button onclick="showSurprise()">Click Here 💖</button>
+<button onclick="start()">Click Here My Love 😏💘</button>
 
-<div id="letter">
-    <p>
-    You are the most special person in my life 💕<br>
-    Thank you for always being there 🥹<br>
-    I love you forever 💖
-    </p>
+<div id="content">
+    <div id="message"></div>
 
     <img src="photo1.jpg">
     <img src="photo2.jpg">
+    <img src="photo3.jpg">
 </div>
 
 <audio id="music" loop>
@@ -79,9 +78,21 @@ img {
 </audio>
 
 <script>
-function showSurprise() {
-    document.getElementById("letter").style.display = "block";
+function start() {
+    document.getElementById("content").style.display = "block";
     document.getElementById("music").play();
+    typeText();
+}
+
+let text = "Yoviee 💖\n\nYou are not just special...\nYou are MY everything 🥹❤️\n\nThank you for loving me,\nfor caring for me,\nand for being mine 💘\n\nHappy Birthday My Love 🎂✨\n\nI love you forever 💖";
+
+let i = 0;
+function typeText() {
+    if (i < text.length) {
+        document.getElementById("message").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeText, 50);
+    }
 }
 
 // floating hearts
@@ -93,9 +104,7 @@ setInterval(() => {
     heart.style.fontSize = Math.random() * 20 + 10 + "px";
     document.body.appendChild(heart);
 
-    setTimeout(() => {
-        heart.remove();
-    }, 5000);
+    setTimeout(() => heart.remove(), 5000);
 }, 300);
 </script>
 
