@@ -1,111 +1,87 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <title>For Yoviee ❤️</title>
 
 <style>
 body {
-    margin: 0;
-    background: linear-gradient(to right, #ff758c, #ff7eb3);
-    font-family: 'Comic Sans MS', cursive;
-    text-align: center;
-    color: white;
-    overflow: hidden;
-}
-
-h1 {
-    margin-top: 40px;
-    font-size: 40px;
+    margin:0;
+    font-family:cursive;
+    text-align:center;
+    background: linear-gradient(to right, pink, purple);
+    color:white;
 }
 
 button {
-    padding: 15px 25px;
-    font-size: 20px;
-    border: none;
-    border-radius: 10px;
-    background: white;
-    color: #ff4d6d;
-    cursor: pointer;
+    padding:15px;
+    margin:10px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
 }
 
-#content {
-    display: none;
-    margin-top: 20px;
-}
-
-#message {
-    font-size: 22px;
-    margin-top: 20px;
-    white-space: pre-line;
-}
-
-img {
-    width: 200px;
-    border-radius: 15px;
-    margin: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-}
-
-.heart {
-    position: absolute;
-    animation: float 5s linear infinite;
-}
-
-@keyframes float {
-    from { transform: translateY(100vh); }
-    to { transform: translateY(-10vh); }
+#options, #romantic, #cute, #birthday {
+    display:none;
+    margin-top:20px;
 }
 </style>
 </head>
 
 <body>
 
-<h1>🎉 Happy Birthday Yoviee 💖</h1>
+<h1>Happy Birthday Yoviee 💖</h1>
 
-<button onclick="start()">Click Here My Love 😏💘</button>
+<button onclick="showOptions()">Open Surprise 😏</button>
 
-<div id="content">
-    <div id="message"></div>
-
-    <img src="photo1.jpg">
-    <img src="photo2.jpg">
-    <img src="photo3.jpg">
+<div id="options">
+    <h2>Choose one 💘</h2>
+    <button onclick="showRomantic()">💘 Romantic</button>
+    <button onclick="showCute()">🧸 Cute</button>
+    <button onclick="showBirthday()">🎂 Birthday</button>
 </div>
 
-<audio id="music" loop>
+<div id="romantic">
+    <h2>For You 💖</h2>
+    <p>
+    (Yaha tera letter paste karegi 💌)
+    </p>
+</div>
+
+<div id="cute">
+    <h2>Cute Mode 🧸</h2>
+    <p>You are my cutest person ever 😭💖</p>
+    <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
+</div>
+
+<div id="birthday">
+    <h2>Birthday Surprise 🎂</h2>
+    <p>Happy Birthday My Love 💘</p>
+    <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
+</div>
+
+<audio id="music">
     <source src="song.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-function start() {
-    document.getElementById("content").style.display = "block";
+function showOptions() {
+    document.getElementById("options").style.display = "block";
     document.getElementById("music").play();
-    typeText();
 }
 
-let text = "Yoviee 💖\n\nYou are not just special...\nYou are MY everything 🥹❤️\n\nThank you for loving me,\nfor caring for me,\nand for being mine 💘\n\nHappy Birthday My Love 🎂✨\n\nI love you forever 💖";
-
-let i = 0;
-function typeText() {
-    if (i < text.length) {
-        document.getElementById("message").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeText, 50);
-    }
+function showRomantic() {
+    document.getElementById("romantic").style.display = "block";
 }
 
-// floating hearts
-setInterval(() => {
-    let heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "❤️";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = Math.random() * 20 + 10 + "px";
-    document.body.appendChild(heart);
+function showCute() {
+    document.getElementById("cute").style.display = "block";
+}
 
-    setTimeout(() => heart.remove(), 5000);
-}, 300);
+function showBirthday() {
+    document.getElementById("birthday").style.display = "block";
+}
 </script>
 
 </body>
