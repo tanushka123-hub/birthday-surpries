@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,10 +15,12 @@ body {
 button {
     padding:15px;
     margin:10px;
-    font-size:18px;
     border:none;
-    border-radius:10px;
+    border-radius:20px;
+    background:white;
+    color:black;
     cursor:pointer;
+    font-size:16px;
 }
 
 #options, #romantic, #cute, #birthday {
@@ -27,38 +28,43 @@ button {
     margin-top:20px;
 }
 </style>
+
 </head>
 
 <body>
 
-<h1>Happy Birthday Yoviee 💖</h1>
+<h1>Happy Birthday Yoviee 🎉❤️</h1>
 
-<button onclick="showOptions()">Open Surprise 😏</button>
+<button onclick="showOptions()">Click Here My Love 😘</button>
 
 <div id="options">
-    <h2>Choose one 💘</h2>
+    <h2>Choose one 💖</h2>
     <button onclick="showRomantic()">💘 Romantic</button>
-    <button onclick="showCute()">🧸 Cute</button>
+    <button onclick="showCute()">🐻 Cute</button>
     <button onclick="showBirthday()">🎂 Birthday</button>
 </div>
 
+<!-- Romantic Section -->
 <div id="romantic">
     <h2>For You 💖</h2>
-    <p>
-    (Yaha tera letter paste karegi 💌)
-    </p>
+
+    <h2 id="heading"></h2>
+    <p id="text"></p>
+
+    <button onclick="nextStep()">Next 💘</button>
 </div>
 
+<!-- Cute Section -->
 <div id="cute">
-    <h2>Cute Mode 🧸</h2>
-    <p>You are my cutest person ever 😭💖</p>
-    <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
+    <h2>Cute Surprise 🐻💖</h2>
+    <p>You are my cute baby 😚💞</p>
 </div>
 
+<!-- Birthday Section -->
 <div id="birthday">
     <h2>Birthday Surprise 🎂</h2>
-    <p>Happy Birthday My Love 💘</p>
-    <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
+    <p>Happy Birthday My Love ❤️</p>
+    <img src="https://media.giphy.com/media/10Myt1h3M0T4Zy/giphy.gif">
 </div>
 
 <audio id="music">
@@ -66,6 +72,55 @@ button {
 </audio>
 
 <script>
+
+let steps = [
+
+{
+heading: "The Beginning 💫",
+text: "Yoviee 💖\n\nHappy Birthday to the most special person in my life ❤️\n\nPata hai... jab aapki request aayi thi na Instagram par... maine pehle accept nahi ki thi 😌"
+},
+
+{
+heading: "From Strangers 💞",
+text: "Phir hum baat karne lage...\n\nShuru me trading ki baate hoti thi 😏📈\n\nPar dheere dheere aap mujhe pasand aane lage 💖"
+},
+
+{
+heading: "That Connection 💖",
+text: "Pata hi nahi chala kab aap mere itne close ho gaye...\n\nMain aapke saath bohot connect feel karti hu 🥺💘"
+},
+
+{
+heading: "Our Love 💫",
+text: "Ab hum ladte bhi hai... par usme bhi pyaar hi hota hai ❤️\n\nAap mere comfort zone ho 💞"
+},
+
+{
+heading: "Naughty Part 😏🔥",
+text: "Aur haan... kabhi kabhi aapko tang karna mujhe bohot pasand hai 😌💘\n\nAur aap sirf mere ho 😤❤️"
+},
+
+{
+heading: "Forever 💍",
+text: "Future me hum hamesha saath rahenge 🥺❤️\n\nShaadi bhi karenge 😌💍\n\nI love you forever 💖"
+}
+
+];
+
+let index = 0;
+
+function nextStep() {
+    index++;
+    if (index >= steps.length) index = 0;
+
+    document.getElementById("heading").innerText = steps[index].heading;
+    document.getElementById("text").innerText = steps[index].text;
+}
+
+// first load
+document.getElementById("heading").innerText = steps[0].heading;
+document.getElementById("text").innerText = steps[0].text;
+
 function showOptions() {
     document.getElementById("options").style.display = "block";
     document.getElementById("music").play();
@@ -82,6 +137,7 @@ function showCute() {
 function showBirthday() {
     document.getElementById("birthday").style.display = "block";
 }
+
 </script>
 
 </body>
