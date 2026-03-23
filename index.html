@@ -7,474 +7,112 @@
 body {
   margin: 0;
   font-family: cursive;
-  text-align: center;
   background: linear-gradient(to right, pink, purple);
   color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 28px;
+  animation: fade 1.5s;
+}
+
+p {
+  font-size: 18px;
+  width: 80%;
+  animation: fade 1.5s;
 }
 
 button {
+  margin-top: 20px;
   padding: 10px 20px;
-  margin: 10px;
-  border: none;
   border-radius: 20px;
+  border: none;
   background: white;
   color: purple;
   font-weight: bold;
 }
 
-#options, #romantic, #cute, #birthday, #secret {
-  display: none;
-}
-
-img {
-  width: 150px;
-  margin: 10px;
+@keyframes fade {
+  from {opacity: 0; transform: translateY(40px);}
+  to {opacity: 1;}
 }
 </style>
 
 </head>
+
 <body>
 
-<h1>Hey Yoviee ❤️</h1>
-
-<button onclick="showOptions()">Open Surprise 🎁</button>
-
-<div id="options">
-  <h2>Choose one 💖</h2>
-  <button onclick="showRomantic()">💌 Romantic</button>
-  <button onclick="showCute()">🐻 Cute</button>
-  <button onclick="showBirthday()">🎂 Birthday</button>
-  <button onclick="askPassword()">🔒 Secret</button>
-</div>
-
-<!-- 💌 Romantic -->
-<div id="romantic">
-  <h2 id="heading"></h2>
+<div class="container">
+  <h1 id="heading"></h1>
   <p id="text"></p>
   <button onclick="nextStep()">Next ❤️</button>
 </div>
 
-<!-- 🐻 Cute -->
-<div id="cute">
-  <h2>Cute Section 🐻</h2>
-  <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
-  <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
-  <img src="https://media.giphy.com/media/ICOgUNjpvO0PC/giphy.gif">
-  <img src="https://media.giphy.com/media/13borq7Zo2kulO/giphy.gif">
-</div>
-
-<!-- 🎂 Birthday -->
-<div id="birthday">
-  <h2>Happy Birthday My Love 🎂❤️</h2>
-  <p>You are the best thing in my life 💖</p>
-
-  <img src="https://media.giphy.com/media/3oz8xKaR836UJOYeOc/giphy.gif">
-  <img src="https://media.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif">
-  <img src="https://media.giphy.com/media/26BRuo6sLetdllPAQ/giphy.gif">
-  <img src="https://media.giphy.com/media/l2JehQ2GitHGdVG9y/giphy.gif">
-</div>
-
-<!-- 🔒 Secret -->
-<div id="secret">
-  <h2>Secret Message 💖</h2>
-  <p>I love you forever ❤️</p>
-</div>
-
 <!-- 🎵 MUSIC -->
-<audio id="music" controls>
+<audio id="music" autoplay loop>
   <source src="song.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 
 let steps = [
-  {
-    heading: "The Beginning 💫",
-    text: "Yoviee ❤️\n\nHappy Birthday to the most special person in my life 💖✨\n\nSach bolu… tu meri life ka sabse beautiful part hai.\n\nPehle hum strangers the… par aaj tu meri duniya ban chuki hai ❤️"
-  },
-  {
-    heading: "From Strangers 💞",
-    text: "Yaad hai wo starting… jab hum bas normal baate karte the…\n\nAur dheere dheere wo baate important ho gayi 💖\n\nTu meri habit ban gayi ❤️"
-  },
-  {
-    heading: "That Connection ❤️",
-    text: "Pata hi nahi chala kab tu itni special ban gayi 💫\n\nTeri har baat matter karti hai 💖\n\nHumara connection real hai ❤️"
-  },
-  {
-    heading: "You Are Special 💝",
-    text: "Tu meri happiness hai ❤️\n\nTere bina sab incomplete lagta hai 💔\n\nTu meri life hai 💖"
-  },
-  {
-    heading: "Today ❤️",
-    text: "Aaj tera birthday hai 💖\n\nThank you meri life me aane ke liye ❤️\n\nTu meri best decision hai 💫"
-  },
-  {
-    heading: "Forever ❤️",
-    text: "I love you forever ❤️\n\nHamesha tere saath rahunga 💖\n\nHappy Birthday My Love 🎂💖"
-  }
+{
+heading: "The Beginning 💫",
+text: "Yoviee ❤️\n\nHappy Birthday to the most special person in my life 💖✨\n\nSach bolu… aap meri life ka sabse beautiful part ho.\n\nPehle hum strangers the… lekin aaj aap meri duniya ban chuke ho ❤️"
+},
+{
+heading: "From Strangers 💞",
+text: "Yaad hai wo starting… jab hum bas normal baate karte the…\n\nAur dheere dheere wo baate important ho gayi 💖\n\nAap meri aadat ban gaye ❤️"
+},
+{
+heading: "That Connection ❤️",
+text: "Pata hi nahi chala kab aap itne special ban gaye 💫\n\nAapki har baat matter karti hai 💖\n\nHumara connection real hai ❤️"
+},
+{
+heading: "You Are Special 💝",
+text: "Aap meri happiness ho ❤️\n\nAapke bina sab incomplete lagta hai 💔\n\nAap meri life ho 💖"
+},
+{
+heading: "Today ❤️",
+text: "Aaj aapka birthday hai 💖\n\nThank you meri life me aane ke liye ❤️\n\nAap meri best decision ho 💫"
+},
+{
+heading: "Forever ❤️",
+text: "I love you forever ❤️\n\nHamesha aapke saath rahungi 💖\n\nHappy Birthday My Love 🎂💖\n\n– Sirf aapki ❤️"
+}
 ];
 
 let index = 0;
 
-function showOptions() {
-  document.getElementById("options").style.display = "block";
-  document.getElementById("music").play();
-}
-
-function showRomantic() {
-  document.getElementById("romantic").style.display = "block";
-  loadStep();
-}
-
-function showCute() {
-  document.getElementById("cute").style.display = "block";
-}
-
-function showBirthday() {
-  document.getElementById("birthday").style.display = "block";
+function showStep() {
+  document.getElementById("heading").innerText = steps[index].heading;
+  document.getElementById("text").innerText = steps[index].text;
 }
 
 function nextStep() {
   index++;
   if(index >= steps.length) index = 0;
-  loadStep();
+  showStep();
 }
 
-function loadStep() {
-  document.getElementById("heading").innerText = steps[index].heading;
-  document.getElementById("text").innerText = steps[index].text;
-}
+showStep();
 
-function askPassword() {
-  let pass = prompt("Enter Password 💖");
-<!DOCTYPE html>
-<html>
-<head>
-<title>For Yoviee ❤️</title>
-
-<style>
-body {
-  margin: 0;
-  font-family: cursive;
-  text-align: center;
-  background: linear-gradient(to right, pink, purple);
-  color: white;
-}
-
-button {
-  padding: 10px 20px;
-  margin: 10px;
-  border: none;
-  border-radius: 20px;
-  background: white;
-  color: purple;
-  font-weight: bold;
-}
-
-#options, #romantic, #cute, #birthday, #secret {
-  display: none;
-}
-
-img {
-  width: 150px;
-  margin: 10px;
-}
-</style>
-
-</head>
-<body>
-
-<h1>Hey Yoviee ❤️</h1>
-
-<button onclick="showOptions()">Open Surprise 🎁</button>
-
-<div id="options">
-  <h2>Choose one 💖</h2>
-  <button onclick="showRomantic()">💌 Romantic</button>
-  <button onclick="showCute()">🐻 Cute</button>
-  <button onclick="showBirthday()">🎂 Birthday</button>
-  <button onclick="askPassword()">🔒 Secret</button>
-</div>
-
-<!-- 💌 Romantic -->
-<div id="romantic">
-  <h2 id="heading"></h2>
-  <p id="text"></p>
-  <button onclick="nextStep()">Next ❤️</button>
-</div>
-
-<!-- 🐻 Cute -->
-<div id="cute">
-  <h2>Cute Section 🐻</h2>
-  <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
-  <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
-  <img src="https://media.giphy.com/media/ICOgUNjpvO0PC/giphy.gif">
-  <img src="https://media.giphy.com/media/13borq7Zo2kulO/giphy.gif">
-</div>
-
-<!-- 🎂 Birthday -->
-<div id="birthday">
-  <h2>Happy Birthday My Love 🎂❤️</h2>
-  <p>You are the best thing in my life 💖</p>
-
-  <img src="https://media.giphy.com/media/3oz8xKaR836UJOYeOc/giphy.gif">
-  <img src="https://media.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif">
-  <img src="https://media.giphy.com/media/26BRuo6sLetdllPAQ/giphy.gif">
-  <img src="https://media.giphy.com/media/l2JehQ2GitHGdVG9y/giphy.gif">
-</div>
-
-<!-- 🔒 Secret -->
-<div id="secret">
-  <h2>Secret Message 💖</h2>
-  <p>I love you forever ❤️</p>
-</div>
-
-<!-- 🎵 MUSIC -->
-<audio id="music" controls>
-  <source src="song.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-
-let steps = [
-  {
-    heading: "The Beginning 💫",
-    text: "Yoviee ❤️\n\nHappy Birthday to the most special person in my life 💖✨\n\nSach bolu… tu meri life ka sabse beautiful part hai.\n\nPehle hum strangers the… par aaj tu meri duniya ban chuki hai ❤️"
-  },
-  {
-    heading: "From Strangers 💞",
-    text: "Yaad hai wo starting… jab hum bas normal baate karte the…\n\nAur dheere dheere wo baate important ho gayi 💖\n\nTu meri habit ban gayi ❤️"
-  },
-  {
-    heading: "That Connection ❤️",
-    text: "Pata hi nahi chala kab tu itni special ban gayi 💫\n\nTeri har baat matter karti hai 💖\n\nHumara connection real hai ❤️"
-  },
-  {
-    heading: "You Are Special 💝",
-    text: "Tu meri happiness hai ❤️\n\nTere bina sab incomplete lagta hai 💔\n\nTu meri life hai 💖"
-  },
-  {
-    heading: "Today ❤️",
-    text: "Aaj tera birthday hai 💖\n\nThank you meri life me aane ke liye ❤️\n\nTu meri best decision hai 💫"
-  },
-  {
-    heading: "Forever ❤️",
-    text: "I love you forever ❤️\n\nHamesha tere saath rahunga 💖\n\nHappy Birthday My Love 🎂💖"
-  }
-];
-
-let index = 0;
-
-function showOptions() {
-  document.getElementById("options").style.display = "block";
-  document.getElementById("music").play();
-}
-
-function showRomantic() {
-  document.getElementById("romantic").style.display = "block";
-  loadStep();
-}
-
-function showCute() {
-  document.getElementById("cute").style.display = "block";
-}
-
-function showBirthday() {
-  document.getElementById("birthday").style.display = "block";
-}
-
-function nextStep() {
-  index++;
-  if(index >= steps.length) index = 0;
-  loadStep();
-}
-
-function loadStep() {
-  document.getElementById("heading").innerText = steps[index].heading;
-  document.getElementById("text").innerText = steps[index].text;
-}
-
-function askPassword() {
-  let pass = prompt("Enter Password 💖");
- <!DOCTYPE html>
-<html>
-<head>
-<title>For Yoviee ❤️</title>
-
-<style>
-body {
-  margin: 0;
-  font-family: cursive;
-  text-align: center;
-  background: linear-gradient(to right, pink, purple);
-  color: white;
-}
-
-button {
-  padding: 10px 20px;
-  margin: 10px;
-  border: none;
-  border-radius: 20px;
-  background: white;
-  color: purple;
-  font-weight: bold;
-}
-
-#options, #romantic, #cute, #birthday, #secret {
-  display: none;
-}
-
-img {
-  width: 150px;
-  margin: 10px;
-}
-</style>
-
-</head>
-<body>
-
-<h1>Hey Yoviee ❤️</h1>
-
-<button onclick="showOptions()">Open Surprise 🎁</button>
-
-<div id="options">
-  <h2>Choose one 💖</h2>
-  <button onclick="showRomantic()">💌 Romantic</button>
-  <button onclick="showCute()">🐻 Cute</button>
-  <button onclick="showBirthday()">🎂 Birthday</button>
-  <button onclick="askPassword()">🔒 Secret</button>
-</div>
-
-<!-- 💌 Romantic -->
-<div id="romantic">
-  <h2 id="heading"></h2>
-  <p id="text"></p>
-  <button onclick="nextStep()">Next ❤️</button>
-</div>
-
-<!-- 🐻 Cute -->
-<div id="cute">
-  <h2>Cute Section 🐻</h2>
-  <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
-  <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
-  <img src="https://media.giphy.com/media/ICOgUNjpvO0PC/giphy.gif">
-  <img src="https://media.giphy.com/media/13borq7Zo2kulO/giphy.gif">
-</div>
-
-<!-- 🎂 Birthday -->
-<div id="birthday">
-  <h2>Happy Birthday My Love 🎂❤️</h2>
-  <p>You are the best thing in my life 💖</p>
-
-  <img src="https://media.giphy.com/media/3oz8xKaR836UJOYeOc/giphy.gif">
-  <img src="https://media.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif">
-  <img src="https://media.giphy.com/media/26BRuo6sLetdllPAQ/giphy.gif">
-  <img src="https://media.giphy.com/media/l2JehQ2GitHGdVG9y/giphy.gif">
-</div>
-
-<!-- 🔒 Secret -->
-<div id="secret">
-  <h2>Secret Message 💖</h2>
-  <p>I love you forever ❤️</p>
-</div>
-
-<!-- 🎵 MUSIC -->
-<audio id="music" controls>
-  <source src="song.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-
-let steps = [
-  {
-    heading: "The Beginning 💫",
-    text: "Yoviee ❤️\n\nHappy Birthday to the most special person in my life 💖✨\n\nSach bolu… tu meri life ka sabse beautiful part hai.\n\nPehle hum strangers the… par aaj tu meri duniya ban chuki hai ❤️"
-  },
-  {
-    heading: "From Strangers 💞",
-    text: "Yaad hai wo starting… jab hum bas normal baate karte the…\n\nAur dheere dheere wo baate important ho gayi 💖\n\nTu meri habit ban gayi ❤️"
-  },
-  {
-    heading: "That Connection ❤️",
-    text: "Pata hi nahi chala kab tu itni special ban gayi 💫\n\nTeri har baat matter karti hai 💖\n\nHumara connection real hai ❤️"
-  },
-  {
-    heading: "You Are Special 💝",
-    text: "Tu meri happiness hai ❤️\n\nTere bina sab incomplete lagta hai 💔\n\nTu meri life hai 💖"
-  },
-  {
-    heading: "Today ❤️",
-    text: "Aaj tera birthday hai 💖\n\nThank you meri life me aane ke liye ❤️\n\nTu meri best decision hai 💫"
-  },
-  {
-    heading: "Forever ❤️",
-    text: "I love you forever ❤️\n\nHamesha tere saath rahunga 💖\n\nHappy Birthday My Love 🎂💖"
-  }
-];
-
-let index = 0;
-
-function showOptions() {
-  document.getElementById("options").style.display = "block";
-  document.getElementById("music").play();
-}
-
-function showRomantic() {
-  document.getElementById("romantic").style.display = "block";
-  loadStep();
-}
-
-function showCute() {
-  document.getElementById("cute").style.display = "block";
-}
-
-function showBirthday() {
-  document.getElementById("birthday").style.display = "block";
-}
-
-function nextStep() {
-  index++;
-  if(index >= steps.length) index = 0;
-  loadStep();
-}
-
-function loadStep() {
-  document.getElementById("heading").innerText = steps[index].heading;
-  document.getElementById("text").innerText = steps[index].text;
-}
-
-function askPassword() {
-  let pass = prompt("Enter Password 💖");
-  if(pass && pass.trim().toLowerCase() === "daddy"){
-    document.getElementById("secret").style.display = "block";
-  } else {
-    alert("Wrong Password 😜");
-  }
-}
-
-</script>
-
-</body>
-</html>{
-    document.getElementById("secret").style.display = "block";
-  } else {
-    alert("Wrong Password 😜");
-  }
-}
+// 🎬 AUTO SLIDE (video jaisa)
+setInterval(() => {
+  nextStep();
+}, 4000);
 
 </script>
 
 </body>
 </html>
-    document.getElementById("secret").style.display = "block";
-  } else {
-    alert("Wrong Password 😜");
-  }
-}
-
-</script>
-
-</body>
-</html>
-  
- 
