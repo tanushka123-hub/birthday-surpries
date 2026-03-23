@@ -10,7 +10,7 @@ font-family:cursive;
 text-align:center;
 background:radial-gradient(circle,pink,purple);
 color:white;
-overflow-x:hidden;
+overflow:hidden;
 }
 
 h1{
@@ -57,20 +57,24 @@ align-items:center;
 font-size:24px;
 z-index:999;
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- LOADER -->
 <div id="loader">Loading your surprise... 💖</div>
 
 <h1>For You ❤️</h1>
 
+<!-- INTRO -->
 <div id="intro">
 <p>Tap anywhere for music 🎶</p>
 <button onclick="start()">Start 💖</button>
 </div>
 
+<!-- OPTIONS -->
 <div id="options" style="display:none;">
 <button onclick="show('romantic')">💌 Romantic</button>
 <button onclick="show('cute')">🐻 Cute</button>
@@ -81,7 +85,7 @@ z-index:999;
 
 <!-- ROMANTIC -->
 <section id="romantic">
-<h2 id="heading"></h2>
+<h2>Our Story 💖</h2>
 <p id="text" class="chat"></p>
 <button onclick="next()">Next ❤️</button>
 <button onclick="hearts()">💜</button>
@@ -98,7 +102,7 @@ z-index:999;
 <section id="birthday">
 <h2>🎂 Tap Gift 🎁</h2>
 <button onclick="gift()">Open 🎁</button>
-<div id="gift" style="display:none;">
+<div id="giftBox" style="display:none;">
 <h3>Happy Birthday ❤️</h3>
 </div>
 </section>
@@ -108,7 +112,7 @@ z-index:999;
 <h2>Will you marry me? 💍❤️</h2>
 <button onclick="ans()">Yes 😍</button>
 <button onmouseover="move(this)">No 😏</button>
-<p id="ans"></p>
+<p id="ansText"></p>
 </section>
 
 <audio id="music" loop>
@@ -117,45 +121,50 @@ z-index:999;
 
 <script>
 
-// loader
+// LOADER
 setTimeout(()=>loader.style.display="none",2000);
 
-// greeting
+// GREETING
 let hour=new Date().getHours();
 alert(hour<12?"Good Morning ❤️":"Good Evening ❤️");
 
-// start
+// START + MUSIC FADE
 function start(){
 intro.style.display="none";
 options.style.display="block";
 
-let m=music;
-m.play();
-m.volume=0;
+music.play();
+music.volume=0;
+
 let fade=setInterval(()=>{
-if(m.volume<1){m.volume+=0.1;}
+if(music.volume<1){music.volume+=0.1;}
 else clearInterval(fade);
 },300);
 }
 
-// sections
+// SHOW
 function show(id){
 document.querySelectorAll("section").forEach(s=>s.style.display="none");
 document.getElementById(id).style.display="block";
 }
 
-// letter
+// 💌 FULL LETTER
 let steps=[
-"Aap meri life ka sabse beautiful part ho ❤️",
-"Aap meri aadat ban gaye ho 💖",
-"Aapke bina sab incomplete lagta hai 💔",
-"Aap meri duniya ho ❤️",
-"I love you forever ❤️"
+"Yoviee ❤️\n\nHappy Birthday to the most special person in my life 🎂💖\n\nSach bolu… aap meri life ka sabse beautiful part ho.",
+"Pehle hum strangers the… lekin aaj aap meri duniya ban chuke ho ❤️",
+"Yaad hai wo starting… jab hum bas normal baate karte the…\n\nAur dheere dheere wo baate important ho gayi 💖",
+"Aap meri aadat ban gaye… bina aapse baat kiye din complete nahi hota ❤️",
+"Aapki har baat… har smile… sab kuch matter karta hai 💫",
+"Aap sirf meri life ka part nahi ho… aap meri life ho ❤️",
+"Aap meri happiness ho… meri peace ho… sab kuch 💖",
+"Aaj aapka birthday hai 🎂✨\n\nThank you meri life me aane ke liye ❤️",
+"Aap meri best decision ho 💘",
+"I love you forever ❤️\n\n– Sirf aapki 💖"
 ];
 
 let i=0;
 
-// typing
+// TYPE EFFECT
 function type(text){
 textEl.innerHTML="";
 let j=0;
@@ -166,6 +175,7 @@ if(j>=text.length) clearInterval(t);
 },30);
 }
 
+// NEXT
 function next(){
 i++;
 if(i>=steps.length){
@@ -175,10 +185,10 @@ i=0;
 type(steps[i]);
 }
 
-// auto slide
+// AUTO SLIDE
 setInterval(next,5000);
 
-// hearts
+// HEART EXPLOSION
 function hearts(){
 for(let i=0;i<15;i++){
 let h=document.createElement("div");
@@ -191,7 +201,7 @@ setTimeout(()=>h.remove(),1500);
 }
 }
 
-// click hearts
+// CLICK HEARTS
 document.body.onclick=(e)=>{
 let h=document.createElement("div");
 h.innerText="💖";
@@ -202,7 +212,7 @@ document.body.appendChild(h);
 setTimeout(()=>h.remove(),1000);
 };
 
-// secret
+// SECRET
 function secret(){
 let p=prompt("Password 💖");
 if(p && p.toLowerCase()=="daddy"){
@@ -210,15 +220,15 @@ alert("You unlocked my heart ❤️");
 }else alert("Wrong 😏");
 }
 
-// gift
+// GIFT
 function gift(){
-gift.style.display="block";
-alert("🎉 Surprise 🎉");
+giftBox.style.display="block";
+alert("🎉🎉 SURPRISE 🎉🎉");
 }
 
-// question
+// QUESTION
 function ans(){
-ans.innerText="Of course it's always you ❤️";
+ansText.innerText="Of course it's always you ❤️";
 }
 function move(btn){
 btn.style.position="absolute";
@@ -226,7 +236,7 @@ btn.style.left=Math.random()*80+"vw";
 btn.style.top=Math.random()*80+"vh";
 }
 
-// random popup
+// RANDOM LOVE POPUP
 setInterval(()=>alert("I love you ❤️"),20000);
 
 </script>
