@@ -4,36 +4,74 @@
 <title>For Yoviee ❤️</title>
 
 <style>
-body {
-  margin:0;
-  font-family:cursive;
-  text-align:center;
-  background:linear-gradient(to right,pink,purple);
-  color:white;
+body{
+margin:0;
+font-family:cursive;
+text-align:center;
+background:radial-gradient(circle,pink,purple);
+color:white;
+overflow-x:hidden;
 }
 
-button {
-  padding:10px 20px;
-  margin:10px;
-  border:none;
-  border-radius:20px;
-  background:white;
-  color:purple;
-  font-weight:bold;
+h1{
+text-shadow:0 0 10px white,0 0 20px pink;
+animation:beat 1s infinite;
 }
 
-section {display:none;}
-img {width:120px; margin:10px;}
+@keyframes beat{
+0%{transform:scale(1);}
+50%{transform:scale(1.1);}
+100%{transform:scale(1);}
+}
+
+button{
+padding:10px 20px;
+margin:10px;
+border:none;
+border-radius:20px;
+background:white;
+color:purple;
+font-weight:bold;
+cursor:pointer;
+}
+
+section{display:none;}
+
+.chat{
+background:white;
+color:black;
+padding:10px;
+border-radius:10px;
+display:inline-block;
+max-width:80%;
+}
+
+#loader{
+position:fixed;
+width:100%;
+height:100%;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:24px;
+z-index:999;
+}
 </style>
-
 </head>
 
 <body>
 
-<h1>For You ❤️</h1>
-<button onclick="start()">Open Surprise 💖</button>
+<div id="loader">Loading your surprise... 💖</div>
 
-<div id="options">
+<h1>For You ❤️</h1>
+
+<div id="intro">
+<p>Tap anywhere for music 🎶</p>
+<button onclick="start()">Start 💖</button>
+</div>
+
+<div id="options" style="display:none;">
 <button onclick="show('romantic')">💌 Romantic</button>
 <button onclick="show('cute')">🐻 Cute</button>
 <button onclick="show('birthday')">🎂 Birthday</button>
@@ -41,147 +79,155 @@ img {width:120px; margin:10px;}
 <button onclick="show('question')">💍 Question</button>
 </div>
 
-<!-- 💌 ROMANTIC -->
+<!-- ROMANTIC -->
 <section id="romantic">
-
-<img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
-
 <h2 id="heading"></h2>
-<p id="text"></p>
-
+<p id="text" class="chat"></p>
 <button onclick="next()">Next ❤️</button>
-<button onclick="hearts()">💜 Tap Me</button>
-
+<button onclick="hearts()">💜</button>
 </section>
 
-<!-- 🐻 CUTE -->
+<!-- CUTE -->
 <section id="cute">
-<h2>Cute 🐻💖</h2>
-
+<h2>Cute 🐻</h2>
 <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
-<img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
 <img src="https://media.giphy.com/media/ICOgUNjpvO0PC/giphy.gif">
-<img src="https://media.giphy.com/media/13borq7Zo2kulO/giphy.gif">
-<img src="https://media.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif">
-
 </section>
 
-<!-- 🎂 BIRTHDAY -->
+<!-- BIRTHDAY -->
 <section id="birthday">
 <h2>🎂 Tap Gift 🎁</h2>
-
 <button onclick="gift()">Open 🎁</button>
-
 <div id="gift" style="display:none;">
 <h3>Happy Birthday ❤️</h3>
-
-<img src="https://media.giphy.com/media/3oz8xKaR836UJOYeOc/giphy.gif">
-<img src="https://media.giphy.com/media/26BRuo6sLetdllPAQ/giphy.gif">
-<img src="https://media.giphy.com/media/l2JehQ2GitHGdVG9y/giphy.gif">
-
 </div>
 </section>
 
-<!-- 💍 QUESTION -->
+<!-- QUESTION -->
 <section id="question">
 <h2>Will you marry me? 💍❤️</h2>
-
 <button onclick="ans()">Yes 😍</button>
-<button onclick="wrong()">No 😏</button>
-
+<button onmouseover="move(this)">No 😏</button>
 <p id="ans"></p>
 </section>
 
-<!-- 🎵 MUSIC -->
 <audio id="music" loop>
 <source src="song.mp3">
 </audio>
 
 <script>
 
-// START
+// loader
+setTimeout(()=>loader.style.display="none",2000);
+
+// greeting
+let hour=new Date().getHours();
+alert(hour<12?"Good Morning ❤️":"Good Evening ❤️");
+
+// start
 function start(){
-document.getElementById("options").style.display="block";
-document.getElementById("music").play();
+intro.style.display="none";
+options.style.display="block";
+
+let m=music;
+m.play();
+m.volume=0;
+let fade=setInterval(()=>{
+if(m.volume<1){m.volume+=0.1;}
+else clearInterval(fade);
+},300);
 }
 
-// SHOW SECTION
+// sections
 function show(id){
 document.querySelectorAll("section").forEach(s=>s.style.display="none");
 document.getElementById(id).style.display="block";
 }
 
-// 💌 FULL LETTER (AAP STYLE)
+// letter
 let steps=[
-{text:"Yoviee ❤️\n\nHappy Birthday to the most special person in my life 🎂💖\n\nSach bolu… aap meri life ka sabse beautiful part ho.\n\nPehle hum strangers the… lekin aaj aap meri duniya ban chuke ho ❤️"},
-{text:"Yaad hai wo starting… jab hum bas normal baate karte the…\n\nAur dheere dheere wo baate important ho gayi 💖\n\nAap meri aadat ban gaye ❤️"},
-{text:"Pata hi nahi chala kab aap itne special ban gaye 💫\n\nAapki har baat matter karti hai 💖\n\nHumara connection real hai ❤️"},
-{text:"Aap meri happiness ho ❤️\n\nAapke bina sab incomplete lagta hai 💔\n\nAap meri life ho 💖"},
-{text:"Aaj aapka birthday hai 💖\n\nThank you meri life me aane ke liye ❤️\n\nAap meri best decision ho 💫"},
-{text:"I love you forever ❤️\n\nHamesha aapke saath rahungi 💖\n\nHappy Birthday My Love 🎂💖\n\n– Sirf aapki ❤️"}
+"Aap meri life ka sabse beautiful part ho ❤️",
+"Aap meri aadat ban gaye ho 💖",
+"Aapke bina sab incomplete lagta hai 💔",
+"Aap meri duniya ho ❤️",
+"I love you forever ❤️"
 ];
 
 let i=0;
 
-// TYPE EFFECT
+// typing
 function type(text){
-let el=document.getElementById("text");
-el.innerHTML="";
+textEl.innerHTML="";
 let j=0;
-let inter=setInterval(()=>{
-el.innerHTML+=text[j];
+let t=setInterval(()=>{
+textEl.innerHTML+=text[j];
 j++;
-if(j>=text.length) clearInterval(inter);
+if(j>=text.length) clearInterval(t);
 },30);
 }
 
 function next(){
 i++;
 if(i>=steps.length){
-alert("I LOVE YOU ❤️ FOREVER 💖");
+alert("You are my everything ❤️\nForever yours 💖");
 i=0;
 }
-type(steps[i].text);
+type(steps[i]);
 }
 
-// AUTO SLIDE
+// auto slide
 setInterval(next,5000);
 
-// HEARTS
+// hearts
 function hearts(){
-for(let i=0;i<20;i++){
+for(let i=0;i<15;i++){
 let h=document.createElement("div");
 h.innerText="💜";
 h.style.position="fixed";
 h.style.left=Math.random()*100+"vw";
 h.style.top=Math.random()*100+"vh";
 document.body.appendChild(h);
-setTimeout(()=>h.remove(),2000);
+setTimeout(()=>h.remove(),1500);
 }
 }
 
-// SECRET
+// click hearts
+document.body.onclick=(e)=>{
+let h=document.createElement("div");
+h.innerText="💖";
+h.style.position="fixed";
+h.style.left=e.clientX+"px";
+h.style.top=e.clientY+"px";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),1000);
+};
+
+// secret
 function secret(){
 let p=prompt("Password 💖");
-if(p && p.trim().toLowerCase()=="daddy"){
-alert("I love you forever ❤️");
-}else{
-alert("Wrong 😏");
-}
+if(p && p.toLowerCase()=="daddy"){
+alert("You unlocked my heart ❤️");
+}else alert("Wrong 😏");
 }
 
-// GIFT
+// gift
 function gift(){
-document.getElementById("gift").style.display="block";
+gift.style.display="block";
+alert("🎉 Surprise 🎉");
 }
 
-// QUESTION
+// question
 function ans(){
-document.getElementById("ans").innerText="Of course it's always you ❤️";
+ans.innerText="Of course it's always you ❤️";
 }
-function wrong(){
-alert("Wrong answer 😏 try again 💘");
+function move(btn){
+btn.style.position="absolute";
+btn.style.left=Math.random()*80+"vw";
+btn.style.top=Math.random()*80+"vh";
 }
+
+// random popup
+setInterval(()=>alert("I love you ❤️"),20000);
 
 </script>
 
