@@ -41,41 +41,58 @@ img {width:120px; margin:10px;}
 <button onclick="show('question')">💍 Question</button>
 </div>
 
-<!-- ROMANTIC -->
+<!-- 💌 ROMANTIC -->
 <section id="romantic">
+
+<img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
+
 <h2 id="heading"></h2>
 <p id="text"></p>
+
 <button onclick="next()">Next ❤️</button>
 <button onclick="hearts()">💜 Tap Me</button>
+
 </section>
 
-<!-- CUTE -->
+<!-- 🐻 CUTE -->
 <section id="cute">
-<h2>Cute 🐻</h2>
+<h2>Cute 🐻💖</h2>
+
 <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
 <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
 <img src="https://media.giphy.com/media/ICOgUNjpvO0PC/giphy.gif">
+<img src="https://media.giphy.com/media/13borq7Zo2kulO/giphy.gif">
+<img src="https://media.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif">
+
 </section>
 
-<!-- BIRTHDAY -->
+<!-- 🎂 BIRTHDAY -->
 <section id="birthday">
 <h2>🎂 Tap Gift 🎁</h2>
+
 <button onclick="gift()">Open 🎁</button>
+
 <div id="gift" style="display:none;">
 <h3>Happy Birthday ❤️</h3>
+
 <img src="https://media.giphy.com/media/3oz8xKaR836UJOYeOc/giphy.gif">
+<img src="https://media.giphy.com/media/26BRuo6sLetdllPAQ/giphy.gif">
+<img src="https://media.giphy.com/media/l2JehQ2GitHGdVG9y/giphy.gif">
+
 </div>
 </section>
 
-<!-- QUESTION -->
+<!-- 💍 QUESTION -->
 <section id="question">
 <h2>Will you marry me? 💍❤️</h2>
+
 <button onclick="ans()">Yes 😍</button>
 <button onclick="wrong()">No 😏</button>
+
 <p id="ans"></p>
 </section>
 
-<!-- MUSIC -->
+<!-- 🎵 MUSIC -->
 <audio id="music" loop>
 <source src="song.mp3">
 </audio>
@@ -97,11 +114,11 @@ document.getElementById(id).style.display="block";
 // 💌 FULL LETTER (AAP STYLE)
 let steps=[
 {text:"Yoviee ❤️\n\nHappy Birthday to the most special person in my life 🎂💖\n\nSach bolu… aap meri life ka sabse beautiful part ho.\n\nPehle hum strangers the… lekin aaj aap meri duniya ban chuke ho ❤️"},
-{text:"Yaad hai wo starting… jab hum bas normal baate karte the…\n\nAur dheere dheere wo baate important ho gayi 💖\n\nAap meri aadat ban gaye… bina aapse baat kiye din complete nahi hota ❤️"},
-{text:"Pata hi nahi chala kab aap itne special ban gaye 💫\n\nAapki har baat… har smile… sab kuch matter karta hai 💖\n\nHumare beech jo connection hai… wo real hai ❤️"},
-{text:"Aap sirf meri life ka part nahi ho… aap meri life ho ❤️\n\nAapke bina sab incomplete lagta hai 💔\n\nAap meri happiness ho… meri peace ho… sab kuch 💖"},
+{text:"Yaad hai wo starting… jab hum bas normal baate karte the…\n\nAur dheere dheere wo baate important ho gayi 💖\n\nAap meri aadat ban gaye ❤️"},
+{text:"Pata hi nahi chala kab aap itne special ban gaye 💫\n\nAapki har baat matter karti hai 💖\n\nHumara connection real hai ❤️"},
+{text:"Aap meri happiness ho ❤️\n\nAapke bina sab incomplete lagta hai 💔\n\nAap meri life ho 💖"},
 {text:"Aaj aapka birthday hai 💖\n\nThank you meri life me aane ke liye ❤️\n\nAap meri best decision ho 💫"},
-{text:"I love you forever ❤️\n\nAur hamesha karti rahungi 💖\n\nChahe kuch bhi ho jaye… main hamesha aapke saath hu ❤️\n\nHappy Birthday My Love 🎂💖\n\n– Sirf aapki ❤️"}
+{text:"I love you forever ❤️\n\nHamesha aapke saath rahungi 💖\n\nHappy Birthday My Love 🎂💖\n\n– Sirf aapki ❤️"}
 ];
 
 let i=0;
