@@ -1,243 +1,158 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>For Yoviee ❤️</title>
+<title>For My Love ❤️</title>
 
 <style>
 body{
 margin:0;
 font-family:cursive;
 text-align:center;
-background:radial-gradient(circle,pink,purple);
 color:white;
 overflow:hidden;
 }
 
-h1{
-text-shadow:0 0 10px white,0 0 20px pink;
-animation:beat 1s infinite;
+.page{
+display:none;
+height:100vh;
+justify-content:center;
+align-items:center;
+flex-direction:column;
 }
 
-@keyframes beat{
-0%{transform:scale(1);}
-50%{transform:scale(1.1);}
-100%{transform:scale(1);}
+/* HEART ANIMATION */
+.heart{
+position:fixed;
+color:red;
+animation:float 5s linear infinite;
+}
+
+@keyframes float{
+from{transform:translateY(100vh);}
+to{transform:translateY(-10vh);}
 }
 
 button{
 padding:10px 20px;
-margin:10px;
+margin-top:20px;
 border:none;
 border-radius:20px;
 background:white;
-color:purple;
-font-weight:bold;
-cursor:pointer;
-}
-
-section{display:none;}
-
-.chat{
-background:white;
 color:black;
-padding:10px;
-border-radius:10px;
-display:inline-block;
-max-width:80%;
+font-weight:bold;
 }
 
-#loader{
-position:fixed;
-width:100%;
-height:100%;
-background:black;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:24px;
-z-index:999;
-}
-
+/* COLORS */
+.black{background:black;}
+.pink{background:pink; color:black;}
+.purple{background:purple;}
+.blue{background:teal;}
+.red{background:#ff4d6d;}
 </style>
+
 </head>
 
 <body>
 
-<!-- LOADER -->
-<div id="loader">Loading your surprise... 💖</div>
-
-<h1>For You ❤️</h1>
-
-<!-- INTRO -->
-<div id="intro">
-<p>Tap anywhere for music 🎶</p>
-<button onclick="start()">Start 💖</button>
+<!-- PAGE 1 -->
+<div id="p1" class="page black" style="display:flex;">
+<h1>Welcome My Love ❤️</h1>
+<button onclick="next('p2')">Next 💖</button>
 </div>
 
-<!-- OPTIONS -->
-<div id="options" style="display:none;">
-<button onclick="show('romantic')">💌 Romantic</button>
-<button onclick="show('cute')">🐻 Cute</button>
-<button onclick="show('birthday')">🎂 Birthday</button>
-<button onclick="secret()">🔐 Secret</button>
-<button onclick="show('question')">💍 Question</button>
+<!-- PAGE 2 -->
+<div id="p2" class="page pink">
+<h2>Do you love me? 😏</h2>
+<button onclick="next('p3')">Yes ❤️</button>
+<button onclick="alert('Socho phir se 😏')">No 😈</button>
 </div>
 
-<!-- ROMANTIC -->
-<section id="romantic">
-<h2>Our Story 💖</h2>
-<p id="text" class="chat"></p>
-<button onclick="next()">Next ❤️</button>
-<button onclick="hearts()">💜</button>
-</section>
-
-<!-- CUTE -->
-<section id="cute">
-<h2>Cute 🐻</h2>
-<img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
-<img src="https://media.giphy.com/media/ICOgUNjpvO0PC/giphy.gif">
-</section>
-
-<!-- BIRTHDAY -->
-<section id="birthday">
-<h2>🎂 Tap Gift 🎁</h2>
-<button onclick="gift()">Open 🎁</button>
-<div id="giftBox" style="display:none;">
-<h3>Happy Birthday ❤️</h3>
+<!-- PAGE 3 -->
+<div id="p3" class="page purple">
+<h1>🎂 Happy Birthday 🎂</h1>
+<div style="font-size:80px;">🎂</div>
+<button onclick="next('p4')">Next 🎁</button>
 </div>
-</section>
 
-<!-- QUESTION -->
-<section id="question">
-<h2>Will you marry me? 💍❤️</h2>
-<button onclick="ans()">Yes 😍</button>
-<button onmouseover="move(this)">No 😏</button>
-<p id="ansText"></p>
-</section>
+<!-- LETTER PAGES -->
+<div id="p4" class="page red">
+<p>Yoviee ❤️<br><br>Happy Birthday to the most special person in my life 🎂💖</p>
+<button onclick="next('p5')">Next</button>
+</div>
 
-<audio id="music" loop>
-<source src="song.mp3">
-</audio>
+<div id="p5" class="page blue">
+<p>Sach bolu… aap meri life ka sabse beautiful part ho ❤️</p>
+<button onclick="next('p6')">Next</button>
+</div>
+
+<div id="p6" class="page pink">
+<p>Aap meri aadat ban gaye ho… bina aapse baat kiye din complete nahi hota 💖</p>
+<button onclick="next('p7')">Next</button>
+</div>
+
+<div id="p7" class="page purple">
+<p>Aap meri happiness ho… meri life ho ❤️</p>
+<button onclick="next('p8')">Next</button>
+</div>
+
+<!-- GAME INTRO -->
+<div id="p8" class="page red">
+<h2>Wanna play some game my love? 🎮</h2>
+<button onclick="next('p9')">Enter 💘</button>
+</div>
+
+<!-- GAME START -->
+<div id="p9" class="page pink">
+<h2>Happy Birthday My Love ❤️</h2>
+<button onclick="next('p10')">Next</button>
+</div>
+
+<div id="p10" class="page blue">
+<h2>Let's start the game 🎯</h2>
+<button onclick="next('p11')">Start</button>
+</div>
+
+<div id="p11" class="page purple">
+<h2>Do you want me for lifetime? 💍</h2>
+<button onclick="next('p12')">Yes ❤️</button>
+<button onclick="alert('No option nahi hai 😏')">No</button>
+</div>
+
+<!-- FINAL MESSAGE -->
+<div id="p12" class="page black">
+<p style="max-width:80%;">
+My love ❤️<br><br>
+Happy Birthday 🎂💖<br><br>
+On your this birthday I wish may success come to you,  
+may God bless you with everything you want,  
+stay healthy, stay safe ❤️<br><br>
+Lots of love from mehh 💘<br><br>
+Yhh I know you miss me… but kya kare bacha hum door hai 🥺<br><br>
+Aur haan… aapka next birthday saath mein hoga ❤️<br><br>
+So just enjoy your amazing day 💖<br><br>
+I am always here for you ❤️<br><br>
+Ummmaaaa 😘<br><br>
+I loooobbbuuuu sooooo muchhhh 💘
+</p>
+</div>
 
 <script>
 
-// LOADER
-setTimeout(()=>loader.style.display="none",2000);
-
-// GREETING
-let hour=new Date().getHours();
-alert(hour<12?"Good Morning ❤️":"Good Evening ❤️");
-
-// START + MUSIC FADE
-function start(){
-intro.style.display="none";
-options.style.display="block";
-
-music.play();
-music.volume=0;
-
-let fade=setInterval(()=>{
-if(music.volume<1){music.volume+=0.1;}
-else clearInterval(fade);
-},300);
+// SWITCH PAGE
+function next(id){
+document.querySelectorAll('.page').forEach(p=>p.style.display='none');
+document.getElementById(id).style.display='flex';
 }
 
-// SHOW
-function show(id){
-document.querySelectorAll("section").forEach(s=>s.style.display="none");
-document.getElementById(id).style.display="block";
-}
-
-// 💌 FULL LETTER
-let steps=[
-"Yoviee ❤️\n\nHappy Birthday to the most special person in my life 🎂💖\n\nSach bolu… aap meri life ka sabse beautiful part ho.",
-"Pehle hum strangers the… lekin aaj aap meri duniya ban chuke ho ❤️",
-"Yaad hai wo starting… jab hum bas normal baate karte the…\n\nAur dheere dheere wo baate important ho gayi 💖",
-"Aap meri aadat ban gaye… bina aapse baat kiye din complete nahi hota ❤️",
-"Aapki har baat… har smile… sab kuch matter karta hai 💫",
-"Aap sirf meri life ka part nahi ho… aap meri life ho ❤️",
-"Aap meri happiness ho… meri peace ho… sab kuch 💖",
-"Aaj aapka birthday hai 🎂✨\n\nThank you meri life me aane ke liye ❤️",
-"Aap meri best decision ho 💘",
-"I love you forever ❤️\n\n– Sirf aapki 💖"
-];
-
-let i=0;
-
-// TYPE EFFECT
-function type(text){
-textEl.innerHTML="";
-let j=0;
-let t=setInterval(()=>{
-textEl.innerHTML+=text[j];
-j++;
-if(j>=text.length) clearInterval(t);
-},30);
-}
-
-// NEXT
-function next(){
-i++;
-if(i>=steps.length){
-alert("You are my everything ❤️\nForever yours 💖");
-i=0;
-}
-type(steps[i]);
-}
-
-// AUTO SLIDE
-setInterval(next,5000);
-
-// HEART EXPLOSION
-function hearts(){
-for(let i=0;i<15;i++){
+// HEARTS
+setInterval(()=>{
 let h=document.createElement("div");
-h.innerText="💜";
-h.style.position="fixed";
+h.className="heart";
+h.innerText="❤️";
 h.style.left=Math.random()*100+"vw";
-h.style.top=Math.random()*100+"vh";
 document.body.appendChild(h);
-setTimeout(()=>h.remove(),1500);
-}
-}
-
-// CLICK HEARTS
-document.body.onclick=(e)=>{
-let h=document.createElement("div");
-h.innerText="💖";
-h.style.position="fixed";
-h.style.left=e.clientX+"px";
-h.style.top=e.clientY+"px";
-document.body.appendChild(h);
-setTimeout(()=>h.remove(),1000);
-};
-
-// SECRET
-function secret(){
-let p=prompt("Password 💖");
-if(p && p.toLowerCase()=="daddy"){
-alert("You unlocked my heart ❤️");
-}else alert("Wrong 😏");
-}
-
-// GIFT
-function gift(){
-giftBox.style.display="block";
-alert("🎉🎉 SURPRISE 🎉🎉");
-}
-
-// QUESTION
-function ans(){
-ansText.innerText="Of course it's always you ❤️";
-}
-function move(btn){
-btn.style.position="absolute";
-btn.style.left=Math.random()*80+"vw";
-btn.style.top=Math.random()*80+"vh";
-}
-
-// RANDOM LOVE POPUP
-setInterval(()=>alert("I love you ❤️"),20000);
+setTimeout(()=>h.remove(),5000);
+},300);
 
 </script>
 
